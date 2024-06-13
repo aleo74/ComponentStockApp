@@ -1,0 +1,41 @@
+ion-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+    
+  ion-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  ion-card-subtitle {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  ion-card-content {
+    font-size: 1em;
+    color: #444;
+  }
+  
+  .tags {
+    margin-top: 10px;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  
+  p {
+    margin: 10px 0;
+  }
+  
+  ion-content {
+    --background: #f9f9f9;
+  }

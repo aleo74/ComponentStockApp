@@ -1,0 +1,33 @@
+  <app-loader *ngIf="loading"></app-loader>
+  <app-search></app-search>
+  <div *ngIf="!loading && stockList && stockList.length; else noStocks">
+    <div class="ion-padding">
+      <div class="ion-grid">
+        <div class="ion-row">
+          <div class="ion-col" size="12" size-md="6" size-lg="4" *ngFor="let stock of stockList">
+            <ion-card (click)="selectStock(stock)">
+              <ion-card-header>
+                <ion-card-title>{{ stock.name }}</ion-card-title>
+                <ion-card-subtitle>Quantity: {{ stock.qty }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Description: {{ stock.description | truncate:50 }}</p>
+                <div class="tags">
+                  <span *ngFor="let tag of stock.tags"
+                        [ngStyle]="{'background-color': tag.color, 'color': getTextColor(tag.color)}"
+                        class="tag">
+                    {{ tag.name }}
+                  </span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noStocks>
+    <p class="ion-text-center">No stocks found.</p>
+  </ng-template>
+<app-button></app-button>
+

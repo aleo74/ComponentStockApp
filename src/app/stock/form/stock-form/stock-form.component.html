@@ -1,0 +1,41 @@
+<div class="ion-text-center">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Add/Edit Stock</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()" #stockForm="ngForm">
+        <ion-item class="ion-margin-bottom">
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input type="text" id="name" name="name" [(ngModel)]="stock!.name" required></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-label position="stacked">Description</ion-label>
+          <ion-textarea id="description" name="description" [(ngModel)]="stock!.description" required></ion-textarea>
+        </ion-item>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-label position="stacked">Quantity</ion-label>
+          <ion-input type="number" id="qty" name="qty" [(ngModel)]="stock!.qty" required></ion-input>
+        </ion-item>
+
+        <!--<ion-item class="ion-margin-bottom">
+          <ion-label position="stacked">Image</ion-label>
+          <input type="file" id="image" name="image" (change)="onFileSelected($event)" class="file-input" />
+        </ion-item>-->
+
+        <ion-item class="ion-margin-bottom">
+          <ion-label position="stacked">Tags</ion-label>
+          <ion-select [(ngModel)]="selectedTagIds" name="tags" multiple interface="popover" (ionChange)="updateStockTags()">
+            <ion-select-option *ngFor="let tag of availableTags" [value]="tag._id">{{ tag.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <div class="ion-margin-top ion-text-right">
+          <ion-button type="submit" color="success">Save Stock</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</div>

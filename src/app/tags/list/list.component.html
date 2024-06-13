@@ -1,0 +1,23 @@
+<app-loader *ngIf="loading"></app-loader>
+<div *ngIf="!loading && tagList && tagList.length; else noTags" class="ion-padding">
+  <div class="ion-padding">
+    <div class="ion-grid">
+      <div class="ion-row">
+        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let tag of tagList">
+          <ion-card (click)="selectTag(tag)" [ngStyle]="{'border-color': tag.color, 'border-width': '4px', 'border-style': 'solid'}">
+            <ion-card-content>
+              <h2 class="ion-text-bold">{{ tag.name }}</h2>
+              <p>color: {{ tag.color }}</p>
+              <p>Description: {{ tag.description }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noTags>
+  <p class="ion-text-center ion-text-danger">No tags available.</p>
+</ng-template>
+<app-button-tag></app-button-tag>

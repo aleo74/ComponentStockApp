@@ -1,0 +1,23 @@
+<ion-content class="ion-padding" fullscreen>
+    <div class="ion-text-center ion-margin">
+      <ion-card class="ion-padding">
+        <ion-card-header>
+          <ion-card-title>Connexion</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form (ngSubmit)="onSubmit()">
+            <ion-item class="ion-margin-bottom">
+              <ion-label position="stacked">Nom d'utilisateur</ion-label>
+              <ion-input type="text" name="username" [(ngModel)]="user.username" required></ion-input>
+            </ion-item>
+            <ion-item class="ion-margin-bottom">
+              <ion-label position="stacked">Mot de passe</ion-label>
+              <ion-input type="password" name="password" [(ngModel)]="user.password" required></ion-input>
+            </ion-item>
+            <ion-button expand="block" type="submit" color="primary">Se Connecter</ion-button>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+  

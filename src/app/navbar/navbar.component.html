@@ -1,0 +1,23 @@
+<ion-menu contentId="main-content" side="start" menuId="main-menu" type="reveal">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title style="margin-left: 50px;">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label (click)="returnHome()">Home</ion-label>
+      </ion-item>
+      <!--<ion-item *ngIf="islogged" (click)="goConfig()">
+        <ion-label>Configurations</ion-label>
+      </ion-item>-->
+      <ion-item *ngIf="islogged" (click)="goToTag()">
+        <ion-label>Tags</ion-label>
+      </ion-item>
+      <ion-item *ngIf="islogged" (click)="logout()">
+        <ion-label>Logout</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

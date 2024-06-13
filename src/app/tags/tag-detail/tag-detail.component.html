@@ -1,0 +1,21 @@
+<div class="ion-text-center ion-padding">
+  <app-loader *ngIf="loading"></app-loader>
+  <div *ngIf="!loading && tag; else noTag" class="ion-margin">
+    <ion-card>
+      <ion-card-content [ngStyle]="{'border-color': tag!.color, 'border-width': '4px', 'border-style': 'solid'}">
+        <h2 class="ion-text-bold ion-margin-bottom">{{ tag!.name }}</h2>
+        <p class="ion-text">{{ 'Description: ' + tag!.description }}</p>
+        <p class="ion-text">{{ 'Creation date: ' + tag!.created_at }}</p>
+        <p class="ion-text">{{ 'Last update: ' + tag!.updated_at }}</p>
+      </ion-card-content>
+    </ion-card>
+    <div class="ion-margin-top ion-text-center">
+      <ion-button color="primary" (click)="editTag(tag!._id)">Edit</ion-button>
+      <ion-button color="danger" (click)="deleteTag()">Delete</ion-button>
+      <ion-button color="light" (click)="returnTagsList()">{{ 'PAGES.DETAIL.BACK_TO_HOME' | translate }}</ion-button>
+    </div>
+  </div>
+  <ng-template #noTag>
+    <p class="ion-text-danger">No tag found.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,33 @@
+<ion-content class="ion-padding" fullscreen>
+  <div class="ion-text-center ion-margin">
+    <app-loader *ngIf="loading"></app-loader>
+    <div *ngIf="!loading && stock; else noStocks" class="ion-margin">
+      <ion-card class="ion-padding">
+        <ion-card-content>
+          <div *ngIf="imageUrl" class="ion-text-center ion-margin-bottom">
+            <img [src]="imageUrl" alt="Image" style="max-height: 24rem; width: auto;" />
+          </div>
+          <ion-card-title>{{ stock.name }}</ion-card-title>
+          <ion-card-subtitle>Quantity: {{ stock.qty }}</ion-card-subtitle>
+          <ion-card-subtitle>Description: {{ stock.description }}</ion-card-subtitle>
+          <ion-card-subtitle>Creation date: {{ stock.created_at | date: 'dd/MM/yyyy' }}</ion-card-subtitle>
+          <ion-card-subtitle>Last update: {{ stock.updated_at | date: 'dd/MM/yyyy' }}</ion-card-subtitle>
+          <div *ngFor="let tags of stock.tags"
+               [ngStyle]="{'background-color': tags.color, 'color': getTextColor(tags.color)}"
+               class="ion-margin-top ion-padding ion-text-center"
+               style="display: inline-block; border-radius: 0.5rem;">
+            {{ tags.name }}
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <div class="ion-margin-top ion-text-center">
+        <ion-button color="primary" expand="block" (click)="editStock(stock._id)">Edit</ion-button>
+        <ion-button color="danger" expand="block" (click)="deleteStock()">Delete</ion-button>
+        <ion-button color="light" expand="block" routerLink="/">{{ 'PAGES.DETAIL.BACK_TO_HOME' | translate }}</ion-button>
+      </div>
+    </div>
+    <ng-template #noStocks>
+      <p color="danger">No tags found.</p>
+    </ng-template>
+  </div>
+</ion-content>

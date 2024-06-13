@@ -1,0 +1,16 @@
+ion-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  ion-item {
+    margin-bottom: 16px;
+  }
+  
+  ion-button {
+    margin-top: 16px;
+    --background: green;
+    --background-activated: darkgreen;
+    --background-focused: darkgreen;
+  }
+  
