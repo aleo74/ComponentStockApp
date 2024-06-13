@@ -16,8 +16,8 @@
 Clonez ce dépôt, puis installez les dépendances :
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/aleo74/ComponentStockApp.git
+cd ComponentStockApp
 npm install
 ```
 
